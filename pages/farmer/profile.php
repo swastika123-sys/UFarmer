@@ -36,6 +36,52 @@ $stmt = $pdo->prepare("SELECT r.*, u.name as customer_name
 $stmt->execute([$farmerId]);
 $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Get farmer's average rating and total reviews
+$stmt = $pdo->prepare("SELECT AVG(rating) as avg_rating, COUNT(*) as total_reviews FROM reviews WHERE farmer_id = ?");
+$stmt->execute([$farmerId]);
+$ratingData = $stmt->fetch(PDO::FETCH_ASSOC);
+$avgRating = $ratingData && $ratingData['avg_rating'] !== null ? round($ratingData['avg_rating'], 1) : 0.0;
+$totalReviews = $ratingData ? (int)$ratingData['total_reviews'] : 0;
+
+// Handle review submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
+    $reviewer_name = trim($_POST['reviewer_name'] ?? 'Anonymous');
+    $rating = intval($_POST['rating'] ?? 0);
+    $comment = trim($_POST['comment'] ?? '');
+    $farmer_id = $farmerId;
+    $errors = [];
+
+    if ($rating < 1 || $rating > 5) {
+        $errors[] = 'Rating must be between 1 and 5.';
+    }
+    if ($comment === '') {
+        $errors[] = 'Comment cannot be empty.';
+    }
+    if (empty($errors)) {
+        // Insert a new user if not logged in, else use logged in user
+        if (isLoggedIn()) {
+            $customer_id = $_SESSION['user_id'];
+        } else {
+            // Create a guest user (or use a fixed guest id if you prefer)
+            $guest_email = strtolower(preg_replace('/\s+/', '', $reviewer_name)) . '@guest.local';
+            $stmt = $pdo->prepare('SELECT id FROM users WHERE email = ?');
+            $stmt->execute([$guest_email]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($user) {
+                $customer_id = $user['id'];
+            } else {
+                $stmt = $pdo->prepare('INSERT INTO users (name, email, password, user_type) VALUES (?, ?, ?, ?)');
+                $stmt->execute([$reviewer_name, $guest_email, password_hash(uniqid(), PASSWORD_DEFAULT), 'customer']);
+                $customer_id = $pdo->lastInsertId();
+            }
+        }
+        $stmt = $pdo->prepare('INSERT INTO reviews (customer_id, farmer_id, rating, comment) VALUES (?, ?, ?, ?)');
+        $stmt->execute([$customer_id, $farmer_id, $rating, $comment]);
+        header('Location: profile.php?id=' . $farmer_id . '&review=success');
+        exit();
+    }
+}
+
 include '../../components/header.php';
 ?>
 
@@ -74,9 +120,9 @@ include '../../components/header.php';
                 <div class="farmer-stats mb-3">
                     <div class="rating-display">
                         <div class="stars">
-                            <?php echo generateStars($farmer['rating']); ?>
+                            <?php echo generateStars($avgRating); ?>
                         </div>
-                        <span class="rating-text"><?php echo number_format($farmer['rating'], 1); ?> out of 5 (<?php echo $farmer['total_reviews']; ?> reviews)</span>
+                        <span class="rating-text"><?php echo number_format($avgRating, 1); ?> out of 5 (<?php echo $totalReviews; ?> reviews)</span>
                     </div>
                 </div>
                 
@@ -125,7 +171,7 @@ include '../../components/header.php';
                         </div>
                         <div class="stat-item">
                             <span class="stat-label">Customer Rating:</span>
-                            <span class="stat-value"><?php echo number_format($farmer['rating'], 1); ?>/5</span>
+                            <span class="stat-value"><?php echo number_format($avgRating, 1); ?>/5</span>
                         </div>
                     </div>
                 </div>
@@ -177,7 +223,6 @@ include '../../components/header.php';
 <section class="farmer-reviews py-5">
     <div class="container">
         <h2 class="text-center mb-5">Customer Reviews</h2>
-        
         <div class="reviews-grid">
             <?php foreach ($reviews as $review): ?>
                 <div class="review-card card mb-3">
@@ -199,6 +244,56 @@ include '../../components/header.php';
     </div>
 </section>
 <?php endif; ?>
+
+<!-- Review Form for all users -->
+<section class="farmer-review-form py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Leave a Review</h2>
+        <?php if (!empty($errors)): ?>
+            <div class="alert alert-danger">
+                <?php foreach (
+                    $errors as $error): ?>
+                    <div><?php echo htmlspecialchars($error); ?></div>
+                <?php endforeach; ?>
+            </div>
+        <?php elseif (isset($_GET['review']) && $_GET['review'] === 'success'): ?>
+            <div class="alert alert-success">Thank you for your review!</div>
+        <?php endif; ?>
+        <form method="post" class="review-form" style="max-width: 500px; margin: 0 auto;">
+            <?php if (isLoggedIn()): ?>
+                <?php 
+                $sessionName = isset($_SESSION['name']) && $_SESSION['name'] !== null && $_SESSION['name'] !== '' 
+                    ? $_SESSION['name'] 
+                    : (isset($_SESSION['user_name']) && $_SESSION['user_name'] ? $_SESSION['user_name'] : '');
+                ?>
+                <input type="hidden" name="reviewer_name" value="<?php echo htmlspecialchars($sessionName); ?>">
+                <div class="form-group mb-3">
+                    <label>Your Name</label>
+                    <input type="text" class="form-control" value="<?php echo htmlspecialchars($sessionName); ?>" disabled>
+                </div>
+            <?php else: ?>
+                <div class="form-group mb-3">
+                    <label for="reviewer_name">Your Name</label>
+                    <input type="text" class="form-control" id="reviewer_name" name="reviewer_name" placeholder="Enter your name" value="<?php echo isset($_POST['reviewer_name']) ? htmlspecialchars($_POST['reviewer_name']) : ''; ?>">
+                </div>
+            <?php endif; ?>
+            <div class="form-group mb-3">
+                <label for="rating">Rating</label>
+                <select class="form-control" id="rating" name="rating" required>
+                    <option value="">Select rating</option>
+                    <?php for ($i = 5; $i >= 1; $i--): ?>
+                        <option value="<?php echo $i; ?>" <?php if (isset($_POST['rating']) && $_POST['rating'] == $i) echo 'selected'; ?>><?php echo $i; ?> Star<?php echo $i > 1 ? 's' : ''; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label for="comment">Comment</label>
+                <textarea class="form-control" id="comment" name="comment" rows="4" required><?php echo htmlspecialchars($_POST['comment'] ?? ''); ?></textarea>
+            </div>
+            <button type="submit" name="submit_review" class="btn btn-success">Submit Review</button>
+        </form>
+    </div>
+</section>
 
 <!-- Contact Modal -->
 <div id="contactModal" class="modal" style="display: none;">
@@ -291,12 +386,44 @@ include '../../components/header.php';
     font-weight: 600;
 }
 
+.product-card {
+    margin-bottom: 1.2rem;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.product-card .card-img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 10px 10px 0 0;
+}
+
+.grid.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.product-card .card-body {
+    padding: 0.8rem 1rem 1rem 1rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .product-details {
-    margin: 1rem 0;
+    margin: 0.7rem 0 0.5rem 0;
 }
 
 .product-details .price {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--success);
     display: block;
@@ -378,6 +505,21 @@ include '../../components/header.php';
 
 .modal-body {
     padding: 1.5rem;
+}
+
+.grid.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .grid.grid-4 {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .product-card .card-img {
+        height: 120px;
+    }
 }
 
 @media (max-width: 768px) {
