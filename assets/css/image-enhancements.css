@@ -1,0 +1,291 @@
+/**
+ * UFarmer Image Optimization and Enhancement Styles
+ * Provides elegant fallbacks and loading states for images
+ */
+
+/* Image Container Base Styles */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e8f5e8, #c8e6c8);
+    border-radius: 8px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+/* Loading States */
+.image-loading {
+    position: relative;
+    background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    animation: loading-animation 1s linear infinite;
+}
+
+@keyframes loading-animation {
+    0% { background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
+    100% { background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px; }
+}
+
+/* Product Image Enhancements */
+.product-card .image-container {
+    height: 200px;
+    background: linear-gradient(135deg, #4CAF50, #66BB6A);
+    position: relative;
+}
+
+.product-card .image-fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    opacity: 0.8;
+    z-index: 5;
+    width: auto;
+    height: auto;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.product-card .image-fallback .fallback-text {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Farmer Profile Image Enhancements */
+.farmer-avatar-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+    border: 5px solid var(--accent-green);
+}
+
+.farmer-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.farmer-avatar-fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.farmer-avatar-fallback .fallback-text {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Category-Specific Image Styles */
+.category-vegetables {
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+}
+
+.category-fruits {
+    background: linear-gradient(135deg, #FF6B6B, #FF8A80);
+}
+
+.category-herbs {
+    background: linear-gradient(135deg, #66BB6A, #81C784);
+}
+
+.category-dairy {
+    background: linear-gradient(135deg, #FFF3E0, #FFCC02);
+}
+
+.category-specialty {
+    background: linear-gradient(135deg, #8D6E63, #A1887F);
+}
+
+/* Image Lazy Loading */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+/* Image Error Handling */
+.image-error {
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Responsive Image Optimization */
+@media (max-width: 768px) {
+    .product-card .image-container {
+        height: 180px;
+    }
+    
+    .farmer-avatar-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .farmer-avatar-fallback {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card .image-container {
+        height: 160px;
+    }
+    
+    .farmer-avatar-container {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .farmer-avatar-fallback {
+        font-size: 2.5rem;
+    }
+}
+
+/* Image Zoom Effect for Product Details */
+.product-image-zoom {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.product-image-zoom:hover {
+    transform: scale(1.1);
+}
+
+/* Gallery Styles */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--light-green);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Improved Card Image Styles */
+.card-img {
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--light-green), var(--accent-green));
+}
+
+.card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Image Upload Preview */
+.image-preview-container {
+    position: relative;
+    max-width: 300px;
+    margin: 1rem 0;
+}
+
+.image-preview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.image-upload-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.image-preview-container:hover .image-upload-overlay {
+    opacity: 1;
+}
+
+/* Image Quality Indicators */
+.image-quality-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.9);
+    color: var(--dark-green);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.quality-hd {
+    background: linear-gradient(135deg, #4CAF50, #66BB6A);
+    color: white;
+}
+
+.quality-optimized {
+    background: linear-gradient(135deg, #2196F3, #42A5F5);
+    color: white;
+}
+
+/* Performance Optimizations */
+.will-change-transform {
+    will-change: transform;
+}
+
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

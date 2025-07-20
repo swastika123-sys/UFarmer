@@ -1,0 +1,9 @@
+About issue 2, on reviews, HOW DOES A CUSTOMER EVEN PUT A
+ REVIEW ANYWHERE? 
+theres probably no way he can do it fron his frontend.
+
+goin back t the navbar padding fix, all you did is increase the
+ internal padding between each navbar element. I want the whole group
+ of nav elements- home myfarm about etc etc, to be as a group, 
+ separatd from the logo and the Cart.
+ 
