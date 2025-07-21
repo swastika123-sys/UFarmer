@@ -2340,3 +2340,79 @@
 [2025-07-20 18:37:18] HTTP: GET /pages/farmer/profile.php?id=12 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/18.5 Safari\/605.1.15"}
 [2025-07-20 18:38:59] DEBUG: Debug logger initialized
 [2025-07-20 18:38:59] HTTP: GET /pages/farmer/profile.php?id=12 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/18.5 Safari\/605.1.15"}
+[2025-07-20 19:22:52] DEBUG: Debug logger initialized
+[2025-07-20 19:22:52] HTTP: GET / - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:23:01] DEBUG: Debug logger initialized
+[2025-07-20 19:23:01] HTTP: GET / - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:23:03] DEBUG: Debug logger initialized
+[2025-07-20 19:23:03] HTTP: GET /pages/farmers.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:23:49] DEBUG: Debug logger initialized
+[2025-07-20 19:23:49] HTTP: GET /pages/farmers.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:24:37] DEBUG: Debug logger initialized
+[2025-07-20 19:24:37] HTTP: GET /pages/farmers.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:24:39] DEBUG: Debug logger initialized
+[2025-07-20 19:24:39] HTTP: GET /pages/shop.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:25:14] DEBUG: Debug logger initialized
+[2025-07-20 19:25:14] HTTP: GET /pages/auth/login.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:27:09] DEBUG: Debug logger initialized
+[2025-07-20 19:27:09] HTTP: POST /pages/auth/login.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:27:10] DEBUG: Debug logger initialized
+[2025-07-20 19:27:10] HTTP: GET / - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:29:10] DEBUG: Debug logger initialized
+[2025-07-20 19:29:10] HTTP: GET / - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:31:20] DEBUG: Debug logger initialized
+[2025-07-20 19:31:20] HTTP: GET /pages/farmers.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:31:23] DEBUG: Debug logger initialized
+[2025-07-20 19:31:23] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:33:44] DEBUG: Debug logger initialized
+[2025-07-20 19:33:44] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:35:37] DEBUG: Debug logger initialized
+[2025-07-20 19:35:37] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:35:37] PHP_ERROR: [WARNING] Undefined array key "name" in C:\Users\Mainframe\Desktop\UFarmer\UFarmer\pages\farmer\profile.php:257
+[2025-07-20 19:35:37] PHP_ERROR: [DEPRECATED] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Mainframe\Desktop\UFarmer\UFarmer\pages\farmer\profile.php:257
+[2025-07-20 19:35:37] PHP_ERROR: [WARNING] Undefined array key "name" in C:\Users\Mainframe\Desktop\UFarmer\UFarmer\pages\farmer\profile.php:260
+[2025-07-20 19:35:37] PHP_ERROR: [DEPRECATED] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\Users\Mainframe\Desktop\UFarmer\UFarmer\pages\farmer\profile.php:260
+[2025-07-20 19:36:25] DEBUG: Debug logger initialized
+[2025-07-20 19:36:25] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:36:48] DEBUG: Debug logger initialized
+[2025-07-20 19:36:48] HTTP: POST /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:36:48] DEBUG: Debug logger initialized
+[2025-07-20 19:36:48] HTTP: GET /pages/farmer/profile.php?id=13&review=success - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:37:05] DEBUG: Debug logger initialized
+[2025-07-20 19:37:05] HTTP: GET /pages/farmer/profile.php?id=13&review=success - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:37:08] DEBUG: Debug logger initialized
+[2025-07-20 19:37:08] HTTP: GET /pages/farmers.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:37:44] DEBUG: Debug logger initialized
+[2025-07-20 19:37:44] HTTP: GET /pages/farmer/profile.php?id=13&review=success - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:45:16] DEBUG: Debug logger initialized
+[2025-07-20 19:45:16] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:45:19] DEBUG: Debug logger initialized
+[2025-07-20 19:45:19] HTTP: GET /pages/farmers.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:45:24] DEBUG: Debug logger initialized
+[2025-07-20 19:45:24] HTTP: GET /pages/farmer/profile.php?id=12 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:45:53] DEBUG: Debug logger initialized
+[2025-07-20 19:45:53] HTTP: POST /pages/farmer/profile.php?id=12 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:45:53] DEBUG: Debug logger initialized
+[2025-07-20 19:45:53] HTTP: GET /pages/farmer/profile.php?id=12&review=success - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:46:18] DEBUG: Debug logger initialized
+[2025-07-20 19:46:18] HTTP: GET /pages/farmer/profile.php?id=12 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:46:24] DEBUG: Debug logger initialized
+[2025-07-20 19:46:24] HTTP: GET /pages/farmers.php - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:46:36] DEBUG: Debug logger initialized
+[2025-07-20 19:46:36] HTTP: GET /pages/farmer/profile.php?id=12 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:46:44] DEBUG: Debug logger initialized
+[2025-07-20 19:46:44] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:47:56] DEBUG: Debug logger initialized
+[2025-07-20 19:47:56] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:49:04] DEBUG: Debug logger initialized
+[2025-07-20 19:49:04] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:51:18] DEBUG: Debug logger initialized
+[2025-07-20 19:51:18] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:51:44] DEBUG: Debug logger initialized
+[2025-07-20 19:51:44] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:52:56] DEBUG: Debug logger initialized
+[2025-07-20 19:52:56] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:53:58] DEBUG: Debug logger initialized
+[2025-07-20 19:53:58] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}
+[2025-07-20 19:55:43] DEBUG: Debug logger initialized
+[2025-07-20 19:55:43] HTTP: GET /pages/farmer/profile.php?id=13 - 200 {"ip":"::1","user_agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/138.0.0.0 Safari\/537.36"}

@@ -101,10 +101,17 @@ function getDynamicFarmerRating($farmerId, $pdo) {
                                     <div class="rating-compact">
                                         <?php 
                                         $rating = $dynamicRating['rating'];
+                                        $fullStars = floor($rating);
+                                        $halfStar = ($rating - $fullStars) >= 0.5;
                                         for ($i = 1; $i <= 5; $i++): 
-                                        ?>
-                                            <span class="star <?php echo $i <= $rating ? 'filled' : 'empty'; ?>">⭐</span>
-                                        <?php endfor; ?>
+                                            if ($i <= $fullStars): ?>
+                                                <span class="star filled">★</span>
+                                            <?php elseif ($halfStar && $i == $fullStars + 1): ?>
+                                                <span class="star half">★</span>
+                                            <?php else: ?>
+                                                <span class="star">☆</span>
+                                            <?php endif;
+                                        endfor; ?>
                                         <span class="rating-number-compact"><?php echo number_format($rating, 1); ?></span>
                                     </div>
                                 </div>
