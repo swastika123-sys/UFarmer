@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
             if ($user) {
                 $customer_id = $user['id'];
             } else {
-                $stmt = $pdo->prepare('INSERT INTO users (name, email, password, user_type) VALUES (?, ?, ?, ?)');
+                 $stmt = $pdo->prepare('INSERT INTO users (name, email, password, user_type) VALUES (?, ?, ?, ?)');
                 $stmt->execute([$reviewer_name, $guest_email, password_hash(uniqid(), PASSWORD_DEFAULT), 'customer']);
                 $customer_id = $pdo->lastInsertId();
             }
